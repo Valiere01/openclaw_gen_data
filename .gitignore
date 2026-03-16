@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+
+# Test outputs
+logs/
+output/
+intents/
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+
+# Documentation and helper files
+helpme_docs/
+
+# Claude files
+claude_files/
+.claude
+
+# Config files with sensitive data
+src/config.py
+
