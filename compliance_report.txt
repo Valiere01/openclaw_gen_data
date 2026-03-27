@@ -1,0 +1,39 @@
+======================================================================
+NURSING ROSTER COMPLIANCE AUDIT REPORT
+======================================================================
+
+Audit Date: 2026-03-28 03:19:42
+Reporting Period: October 2025
+
+COMPLIANCE CRITERIA:
+  - Maximum Shift Duration: 12 hours
+  - Minimum Rest Between Shifts: 10 hours
+
+----------------------------------------------------------------------
+SUMMARY
+----------------------------------------------------------------------
+Total Shifts Analyzed: 6
+Total Violations Found: 1
+  - Shift Duration Violations: 0
+  - Rest Period Violations: 1
+
+----------------------------------------------------------------------
+VIOLATIONS DETAIL
+----------------------------------------------------------------------
+REST PERIOD VIOLATIONS:
+  [1] Nurse ID: N002
+      Previous Shift End: 2025-10-03 08:00
+      Next Shift Start: 2025-10-03 10:00
+      Rest Period: 2.0 hours (below 10h requirement)
+      Deficit: 8.0 hours
+
+----------------------------------------------------------------------
+RECOMMENDATIONS
+----------------------------------------------------------------------
+3. Enforce mandatory rest periods between consecutive shifts
+4. Add scheduling guardrails to prevent back-to-back assignments
+   with insufficient rest periods
+
+======================================================================
+END OF REPORT
+======================================================================

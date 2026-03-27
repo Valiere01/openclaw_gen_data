@@ -1,0 +1,27 @@
+{
+  "audit_date": "2026-03-28T03:19:42.718510",
+  "criteria": {
+    "max_shift_duration_hours": 12,
+    "min_rest_between_shifts_hours": 10
+  },
+  "summary": {
+    "total_shifts": 6,
+    "duration_violations": 0,
+    "rest_violations": 1,
+    "total_violations": 1
+  },
+  "violations": {
+    "shift_duration": [],
+    "rest_period": [
+      {
+        "nurse_id": "N002",
+        "violation_type": "INSUFFICIENT_REST_PERIOD",
+        "previous_shift_end": "2025-10-03 08:00",
+        "next_shift_start": "2025-10-03 10:00",
+        "rest_hours": 2.0,
+        "required_hours": 10,
+        "deficit_hours": 8.0
+      }
+    ]
+  }
+}
