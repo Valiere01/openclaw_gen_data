@@ -1,0 +1,397 @@
+{
+  "wcagVersion": "2.2",
+  "conformanceLevel": "AA",
+  "datasetId": "edu-resources-baseline-2026-q1",
+  "generatedDate": "2026-03-15T08:00:00Z",
+  "scope": "Offline Math Module - Low Connectivity Regions",
+  "principles": {
+    "perceivable": {
+      "guideline1_1": {
+        "id": "1.1.1",
+        "name": "Non-text Content",
+        "level": "A",
+        "screenReaderRelevant": true,
+        "requirements": [
+          "All images must have alt text",
+          "Icons used for math symbols need text alternatives",
+          "Charts and graphs require descriptions"
+        ],
+        "status": "compliant",
+        "evidence": {
+          "totalImages": 47,
+          "withAltText": 47,
+          "decorativeImagesMarked": 12
+        }
+      },
+      "guideline1_3": {
+        "id": "1.3.1",
+        "name": "Info and Relationships",
+        "level": "A",
+        "screenReaderRelevant": true,
+        "requirements": [
+          "Mathematical expressions use MathML or accessible notation",
+          "Tables have proper headers",
+          "Form fields associated with labels",
+          "Heading hierarchy is logical"
+        ],
+        "status": "partial",
+        "evidence": {
+          "mathExpressionsTotal": 234,
+          "mathMLCompliant": 198,
+          "tablesTotal": 15,
+          "tablesWithHeaders": 14,
+          "headingViolations": 3
+        },
+        "issues": [
+          {
+            "severity": "medium",
+            "location": "lesson-03/fractions.html",
+            "description": "Heading level skips from h2 to h4"
+          },
+          {
+            "severity": "low",
+            "location": "quiz-algebra-01.html",
+            "description": "Data table missing scope attributes on th elements"
+          }
+        ]
+      },
+      "guideline1_4": {
+        "id": "1.4.1",
+        "name": "Use of Color",
+        "level": "A",
+        "screenReaderRelevant": true,
+        "requirements": [
+          "Color is not the only means of conveying information",
+          "Error states have text indicators beyond color"
+        ],
+        "status": "compliant",
+        "evidence": {
+          "colorOnlyIndicators": 0,
+          "textAlternativesPresent": true
+        }
+      },
+      "guideline1_4_11": {
+        "id": "1.4.11",
+        "name": "Non-text Contrast",
+        "level": "AA",
+        "screenReaderRelevant": false,
+        "requirements": [
+          "UI components have 3:1 contrast ratio",
+          "Graphical objects have 3:1 contrast"
+        ],
+        "status": "compliant",
+        "evidence": {
+          "minimumContrastRatio": 3.5,
+          "componentsTested": 89
+        }
+      }
+    },
+    "operable": {
+      "guideline2_1": {
+        "id": "2.1.1",
+        "name": "Keyboard",
+        "level": "A",
+        "screenReaderRelevant": true,
+        "requirements": [
+          "All functionality available via keyboard",
+          "No keyboard traps",
+          "Custom controls support keyboard interaction"
+        ],
+        "status": "compliant",
+        "evidence": {
+          "interactiveElementsTotal": 156,
+          "keyboardAccessible": 156,
+          "keyboardTrapsFound": 0
+        }
+      },
+      "guideline2_4": {
+        "id": "2.4.1",
+        "name": "Bypass Blocks",
+        "level": "A",
+        "screenReaderRelevant": true,
+        "requirements": [
+          "Skip navigation links present",
+          "Landmark regions properly defined"
+        ],
+        "status": "compliant",
+        "evidence": {
+          "skipLinksPresent": true,
+          "landmarksDefined": ["main", "nav", "contentinfo", "search"]
+        }
+      },
+      "guideline2_4_6": {
+        "id": "2.4.6",
+        "name": "Headings and Labels",
+        "level": "AA",
+        "screenReaderRelevant": true,
+        "requirements": [
+          "Headings are descriptive",
+          "Form labels clearly identify purpose"
+        ],
+        "status": "compliant",
+        "evidence": {
+          "headingsTotal": 67,
+          "descriptiveHeadings": 67,
+          "formLabelsClear": true
+        }
+      },
+      "guideline2_5": {
+        "id": "2.5.1",
+        "name": "Pointer Gestures",
+        "level": "A",
+        "screenReaderRelevant": false,
+        "requirements": [
+          "No complex gestures required",
+          "Single pointer operations supported"
+        ],
+        "status": "compliant",
+        "evidence": {
+          "complexGesturesRequired": 0,
+          "alternativeSinglePointerAvailable": true
+        }
+      }
+    },
+    "understandable": {
+      "guideline3_1": {
+        "id": "3.1.1",
+        "name": "Language of Page",
+        "level": "A",
+        "screenReaderRelevant": true,
+        "requirements": [
+          "Default language declared in html element",
+          "Language changes marked for screen readers"
+        ],
+        "status": "compliant",
+        "evidence": {
+          "defaultLanguage": "en",
+          "languageChangesMarked": 4
+        }
+      },
+      "guideline3_2": {
+        "id": "3.2.1",
+        "name": "On Focus",
+        "level": "A",
+        "screenReaderRelevant": true,
+        "requirements": [
+          "No unexpected context changes on focus",
+          "Form submissions require user activation"
+        ],
+        "status": "compliant",
+        "evidence": {
+          "unexpectedContextChanges": 0,
+          "formSubmissionExplicit": true
+        }
+      },
+      "guideline3_3": {
+        "id": "3.3.1",
+        "name": "Error Identification",
+        "level": "A",
+        "screenReaderRelevant": true,
+        "requirements": [
+          "Input errors are identified and described in text",
+          "Error suggestions provided where possible"
+        ],
+        "status": "partial",
+        "evidence": {
+          "formFieldsTotal": 34,
+          "errorMessagesDescriptive": 31,
+          "errorSuggestionsProvided": 28
+        },
+        "issues": [
+          {
+            "severity": "medium",
+            "location": "assessment-entry.html",
+            "description": "3 form fields have generic error messages without specific guidance"
+          }
+        ]
+      }
+    },
+    "robust": {
+      "guideline4_1": {
+        "id": "4.1.1",
+        "name": "Parsing",
+        "level": "A",
+        "screenReaderRelevant": true,
+        "requirements": [
+          "HTML is well-formed",
+          "No duplicate IDs",
+          "Elements have complete start and end tags"
+        ],
+        "status": "compliant",
+        "evidence": {
+          "validationErrors": 0,
+          "duplicateIdsFound": 0,
+          "unclosedTagsFound": 0
+        }
+      },
+      "guideline4_1_2": {
+        "id": "4.1.2",
+        "name": "Name, Role, Value",
+        "level": "A",
+        "screenReaderRelevant": true,
+        "requirements": [
+          "Custom controls have accessible names",
+          "ARIA roles used correctly",
+          "State changes announced to screen readers",
+          "MathML content properly labeled"
+        ],
+        "status": "partial",
+        "evidence": {
+          "customControlsTotal": 23,
+          "withAccessibleNames": 23,
+          "ariaRolesCorrect": 21,
+          "stateChangesAnnounced": 19,
+          "mathMLLabeled": 198
+        },
+        "issues": [
+          {
+            "severity": "high",
+            "location": "interactive-graph.html",
+            "description": "2 custom slider controls missing aria-valuenow updates on interaction"
+          },
+          {
+            "severity": "medium",
+            "location": "equation-builder.html",
+            "description": "Dynamic content changes not announced via aria-live regions"
+          }
+        ]
+      },
+      "guideline4_1_3": {
+        "id": "4.1.3",
+        "name": "Status Messages",
+        "level": "AA",
+        "screenReaderRelevant": true,
+        "requirements": [
+          "Status messages available to assistive technologies",
+          "Messages do not receive focus unexpectedly"
+        ],
+        "status": "compliant",
+        "evidence": {
+          "statusMessagesTotal": 18,
+          "ariaLiveImplemented": 18,
+          "focusManagementCorrect": true
+        }
+      }
+    }
+  },
+  "screenReaderCompatibility": {
+    "testedReaders": [
+      {
+        "name": "NVDA",
+        "version": "2025.4",
+        "platform": "Windows 11",
+        "browser": "Firefox 124",
+        "compatibilityScore": 94,
+        "issuesFound": 3
+      },
+      {
+        "name": "JAWS",
+        "version": "2026.2501",
+        "platform": "Windows 11",
+        "browser": "Chrome 122",
+        "compatibilityScore": 91,
+        "issuesFound": 5
+      },
+      {
+        "name": "VoiceOver",
+        "version": "macOS 15.3",
+        "platform": "macOS",
+        "browser": "Safari 18.3",
+        "compatibilityScore": 96,
+        "issuesFound": 2
+      },
+      {
+        "name": "TalkBack",
+        "version": "15.2",
+        "platform": "Android 15",
+        "browser": "Chrome Mobile 122",
+        "compatibilityScore": 89,
+        "issuesFound": 6
+      }
+    ],
+    "mathNotationSupport": {
+      "mathML": {
+        "supported": true,
+        "fallbackProvided": true,
+        "fallbackType": "LaTeX with text description"
+      },
+      "asciiMath": {
+        "supported": true,
+        "screenReaderAnnouncement": "clear with proper pauses"
+      },
+      "customSymbols": {
+        "totalSymbols": 45,
+        "withAriaLabels": 45,
+        "testedAndVerified": 42
+      }
+    },
+    "navigationPatterns": {
+      "headingNavigation": "fully-supported",
+      "landmarkNavigation": "fully-supported",
+      "linkListNavigation": "fully-supported",
+      "formFieldNavigation": "fully-supported",
+      "tableNavigation": "supported-with-minor-issues"
+    }
+  },
+  "offlineConsiderations": {
+    "cachedResources": true,
+    "serviceWorkerImplemented": true,
+    "ariaAnnouncementsCached": true,
+    "localizationFiles": ["en", "es", "fr", "hi", "ar"],
+    "lowBandwidthMode": {
+      "enabled": true,
+      "reducedGraphics": true,
+      "textOnlyMathOption": true
+    }
+  },
+  "summary": {
+    "totalCriteria": 50,
+    "compliant": 42,
+    "partial": 6,
+    "nonCompliant": 2,
+    "notApplicable": 0,
+    "overallScore": 84,
+    "conformanceStatus": "Partial AA",
+    "criticalIssues": 1,
+    "highPriorityIssues": 2,
+    "mediumPriorityIssues": 4,
+    "lowPriorityIssues": 3
+  },
+  "recommendations": [
+    {
+      "priority": "critical",
+      "criterion": "4.1.2",
+      "action": "Implement aria-valuenow updates for interactive slider controls in interactive-graph.html",
+      "effort": "low",
+      "impact": "high"
+    },
+    {
+      "priority": "high",
+      "criterion": "4.1.3",
+      "action": "Add aria-live regions for dynamic content changes in equation-builder.html",
+      "effort": "medium",
+      "impact": "high"
+    },
+    {
+      "priority": "high",
+      "criterion": "1.3.1",
+      "action": "Fix heading hierarchy violations across 3 lesson modules",
+      "effort": "low",
+      "impact": "medium"
+    },
+    {
+      "priority": "medium",
+      "criterion": "3.3.1",
+      "action": "Enhance form error messages with specific guidance for 3 fields",
+      "effort": "low",
+      "impact": "medium"
+    },
+    {
+      "priority": "medium",
+      "criterion": "1.3.1",
+      "action": "Add scope attributes to all table header elements",
+      "effort": "low",
+      "impact": "low"
+    }
+  ]
+}
