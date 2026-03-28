@@ -1,0 +1,10 @@
+{
+  "total_rows": 5,
+  "null_timestamp": 0,
+  "null_ticker": 1,
+  "duplicates": 1,
+  "zero_price": 0,
+  "invalid_volume": 0,
+  "symbol_normalized": 2,
+  "final_rows": 3
+}
