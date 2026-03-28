@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quarterly Donor Review - Program Canvas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            color: rgba(255,255,255,0.9);
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .canvas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card.highlighted {
+            transform: scale(1.08);
+            box-shadow: 0 15px 60px rgba(0,0,0,0.3);
+            border: 3px solid #10b981;
+        }
+        
+        .card.standard {
+            opacity: 0.85;
+        }
+        
+        .status-indicator {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .status-green {
+            background: #10b981;
+            color: white;
+        }
+        
+        .status-yellow {
+            background: #f59e0b;
+            color: white;
+        }
+        
+        .program-id {
+            font-size: 0.85rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .program-name {
+            font-size: 1.5rem;
+            color: #1f2937;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .satisfaction-section {
+            background: #f3f4f6;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .satisfaction-label {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+        
+        .satisfaction-score {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card.highlighted .satisfaction-score {
+            font-size: 3.5rem;
+        }
+        
+        .impact-stats {
+            display: none;
+        }
+        
+        .card.highlighted .impact-stats {
+            display: block;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+        }
+        
+        .impact-title {
+            font-size: 1rem;
+            color: #10b981;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .stat-row:last-child {
+            border-bottom: none;
+        }
+        
+        .stat-label {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        
+        .stat-value {
+            color: #1f2937;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        .badge-success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .badge-attention {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .legend {
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            padding: 20px 30px;
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .legend-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+        
+        .legend-dot.green { background: #10b981; }
+        .legend-dot.yellow { background: #f59e0b; }
+        
+        .legend-text {
+            color: #374151;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Quarterly Donor Review</h1>
+        <p class="subtitle">Women's Education NGO - Beneficiary Feedback Analysis</p>
+        
+        <div class="canvas">
+            <!-- P001: Rural Literacy - HIGHLIGHTED -->
+            <div class="card highlighted" id="P001">
+                <div class="status-indicator status-green">✓</div>
+                <div class="program-id">Program ID: P001</div>
+                <div class="program-name">📚 Rural Literacy</div>
+                
+                <div class="satisfaction-section">
+                    <div class="satisfaction-label">Satisfaction Score</div>
+                    <div class="satisfaction-score">92%</div>
+                </div>
+                
+                <div class="impact-stats">
+                    <div class="impact-title">📈 Full Impact Statistics</div>
+                    <div class="stat-row">
+                        <span class="stat-label">Beneficiaries Reached</span>
+                        <span class="stat-value">2,450 women</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Completion Rate</span>
+                        <span class="stat-value">94%</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Literacy Improvement</span>
+                        <span class="stat-value">+67% avg</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Program Duration</span>
+                        <span class="stat-value">12 months</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Cost per Beneficiary</span>
+                        <span class="stat-value">$45 USD</span>
+                    </div>
+                    <div class="badge badge-success">✅ Exceeds 85% Threshold</div>
+                </div>
+            </div>
+            
+            <!-- P002: Tech Access - STANDARD -->
+            <div class="card standard" id="P002">
+                <div class="status-indicator status-yellow">!</div>
+                <div class="program-id">Program ID: P002</div>
+                <div class="program-name">💻 Tech Access</div>
+                
+                <div class="satisfaction-section">
+                    <div class="satisfaction-label">Satisfaction Score</div>
+                    <div class="satisfaction-score">78%</div>
+                </div>
+                
+                <div class="impact-stats">
+                    <div class="impact-title">📈 Full Impact Statistics</div>
+                    <div class="stat-row">
+                        <span class="stat-label">Beneficiaries Reached</span>
+                        <span class="stat-value">1,180 women</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Completion Rate</span>
+                        <span class="stat-value">71%</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Digital Skills Gain</span>
+                        <span class="stat-value">+52% avg</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Program Duration</span>
+                        <span class="stat-value">6 months</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Cost per Beneficiary</span>
+                        <span class="stat-value">$120 USD</span>
+                    </div>
+                    <div class="badge badge-attention">⚠️ Below 85% Threshold</div>
+                </div>
+            </div>
+            
+            <!-- P003: Vocational Training - HIGHLIGHTED -->
+            <div class="card highlighted" id="P003">
+                <div class="status-indicator status-green">✓</div>
+                <div class="program-id">Program ID: P003</div>
+                <div class="program-name">🛠️ Vocational Training</div>
+                
+                <div class="satisfaction-section">
+                    <div class="satisfaction-label">Satisfaction Score</div>
+                    <div class="satisfaction-score">89%</div>
+                </div>
+                
+                <div class="impact-stats">
+                    <div class="impact-title">📈 Full Impact Statistics</div>
+                    <div class="stat-row">
+                        <span class="stat-label">Beneficiaries Reached</span>
+                        <span class="stat-value">1,890 women</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Completion Rate</span>
+                        <span class="stat-value">91%</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Employment Rate</span>
+                        <span class="stat-value">83%</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Program Duration</span>
+                        <span class="stat-value">9 months</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Cost per Beneficiary</span>
+                        <span class="stat-value">$85 USD</span>
+                    </div>
+                    <div class="badge badge-success">✅ Exceeds 85% Threshold</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-dot green"></div>
+                <span class="legend-text">Meets 85%+ Satisfaction (Highlighted)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot yellow"></div>
+                <span class="legend-text">Below Threshold (Needs Attention)</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
