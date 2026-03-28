@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+*.egg-info/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Build outputs
+dist/
+build/
+*.so
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# OpenClaw workspace config (keep separate)
+.openclaw/

@@ -1,0 +1,21 @@
+Water Conservation Estimation Report
+Generated: Sat Mar 28 12:14:36 CST 2026
+=====================================
+
+Input Data:
+  Soil A Moisture: 12%
+  Soil B Moisture: 18%
+  Soil C Moisture: 9%
+
+Calculated Metrics:
+  Average Moisture: 13.00%
+  Conservation Tier: LOW
+
+Recommendation:
+  Schedule irrigation within 48 hours. Monitor closely.
+
+Estimated Water Savings: 10-15%
+
+---
+CLAWDINATOR Runtime v1.0
+Q3 Soil Health Assessment - River Valley Co-ops
